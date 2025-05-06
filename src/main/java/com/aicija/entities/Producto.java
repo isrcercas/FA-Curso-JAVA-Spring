@@ -20,6 +20,7 @@ public class Producto {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
+
     // declaracion de wrapper classes o clases envoltorios o envolventes,
     // por eso el primera letra del tipo de dato va en mayusculas. Y pueden ser null
     @Column(nullable = false) // este campo o atributo sera obligatorio nunca estará vacio

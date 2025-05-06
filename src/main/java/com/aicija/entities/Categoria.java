@@ -13,7 +13,7 @@ public class Categoria {
     private Long id;
     // declaracion de wrapper classes o clases envoltorios o envolventes
     private String nombre;
-
+    private Long id_producto;
 
 
 }
