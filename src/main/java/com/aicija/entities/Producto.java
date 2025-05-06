@@ -1,33 +1,34 @@
 package com.aicija.entities;
 
-
 import jakarta.persistence.*;
 
 @Entity // indeica que esta clase es una tabla
-@Table(name = "productos") // personaliza el nombre de la tabla
+@Table(name = "productos") // personaliza el nombre de la tabla es una anotacion
 public class Producto {
-
+    // Clase Entity Basica
     // UN tipo primitivo nunca tendrá valor null, por eso, se usan datos NO primitivos o llamados clases envolventes o wrapper classes
     // ojo cuando creamos las claves primarias siempre se crean asi
     /*
         Poner el atributo que sera Primary Key debajo de @GeneratedValue FOREVER
         @Id // indica que este atributo es la clave primaria
         @GeneratedValue(strategy =  GenerationType.IDENTITY)
-        private Long id;
+        private Long nombreAtributo;
      */
 
-    // Creación de Primary Key
+    // Creación de Primary Key y será autoincrementable
     @Id // indica que este atributo es la clave primaria
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
 
-    // declaracion de wrapper classes o clases envoltorios o envolventes
+    // declaracion de wrapper classes o clases envoltorios o envolventes,
+    // por eso el primera letra del tipo de dato va en mayusculas. Y pueden ser null
+    @Column(nullable = false) // este campo o atributo sera obligatorio nunca estará vacio
     private String nombre;
     private Double precio;
     private Integer stock;
     private Boolean disponible;
     // Siempre spring necesita un constructor vacio
-    public Producto() {}
+    public Producto() {} // es obligatorio
 
     // Creamos un creamos un constructor con parametros.
     public Producto(String nombre, Double precio, Integer stock, Boolean disponible) {
@@ -73,4 +74,18 @@ public class Producto {
     public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
     }
+
+    // Metodo ToString
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", stock=" + stock +
+                ", disponible=" + disponible +
+                '}';
+    }
+
+
 }
