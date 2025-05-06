@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity // indeica que esta clase es una tabla
 @Table(name = "productos") // personaliza el nombre de la tabla es una anotacion
 public class Producto {
-    // Clase Entity Basica
+    // Clase Entity Basica asi se crean siempre
     // UN tipo primitivo nunca tendrá valor null, por eso, se usan datos NO primitivos o llamados clases envolventes o wrapper classes
     // ojo cuando creamos las claves primarias siempre se crean asi
     /*
