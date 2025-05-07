@@ -28,9 +28,6 @@ public class Main {
 		productoRepository.save(manzana);
 		productoRepository.save(yogurt);
 		productoRepository.save(avena);
-
-
-
 	}
 
 }
