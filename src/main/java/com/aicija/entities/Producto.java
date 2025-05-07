@@ -10,9 +10,15 @@ public class Producto {
     // ojo cuando creamos las claves primarias siempre se crean asi
     /*
         Poner el atributo que sera Primary Key debajo de @GeneratedValue FOREVER
+        // Creación de Primary Key y será autoincrementable
         @Id // indica que este atributo es la clave primaria
         @GeneratedValue(strategy =  GenerationType.IDENTITY)
         private Long nombreAtributo;
+     */
+
+    /*
+       Desde esta clase se puede crear directamente un productoRepository con boton right show sprindatarepository
+
      */
 
     // Creación de Primary Key y será autoincrementable
