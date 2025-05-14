@@ -31,6 +31,10 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
   // Encontrar por nombre si o no ignoreCase
   boolean existsByNombreIgnoreCase(String nombre);
 
+  // contar stock
+  long countByStock(Integer stock);
+
+
   // Consultas JPQL
   // Similares a SQL orientadas a objetos
   // para consultas complejas
@@ -40,9 +44,10 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
   @Query("select p from Producto p where p.precio between :precioStart and :precioEnd")
   List<Producto> findByPrecioBetween(Double precioStart, Double precioEnd);
   // a mano
+  /*
   @Query("select p from Producto p where p.precio between :priceMin and :priceMax")
   List<Producto> findByPriceBetween(@Param("priceMin") Double pMin, @Param("pricemax") Double pMax);
-
+   */
 
 
   }

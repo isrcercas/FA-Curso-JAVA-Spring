@@ -1,6 +1,7 @@
 package com.aicija.entities;
 
 import jakarta.persistence.*;
+import com.aicija.entities.Categoria;
 
 @Entity // indeica que esta clase es una tabla
 @Table(name = "productos") // personaliza el nombre de la tabla es una anotacion
@@ -14,9 +15,7 @@ public class Producto {
         @Id // indica que este atributo es la clave primaria
         @GeneratedValue(strategy =  GenerationType.IDENTITY)
         private Long nombreAtributo;
-     */
 
-    /*
        Desde esta clase se puede crear directamente un productoRepository con boton right show sprindatarepository
 
      */
@@ -24,7 +23,7 @@ public class Producto {
     // Creación de Primary Key y será autoincrementable
     @Id // indica que este atributo es la clave primaria
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long id;
+    private Long id_producto;
 
 
     // declaracion de wrapper classes o clases envoltorios o envolventes,
@@ -34,24 +33,43 @@ public class Producto {
     private Double precio;
     private Integer stock;
     private Boolean disponible;
+
+    // Ahora en Producto lo hemos relacionado como many to one con Categoria
+    // Relacion muchos producto a una sola categoria
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+
     // Siempre spring necesita un constructor vacio
     public Producto() {} // es obligatorio
 
     // Creamos un creamos un constructor con parametros.
-    public Producto(String nombre, Double precio, Integer stock, Boolean disponible) {
+    public Producto(String nombre, Double precio, Integer stock, Boolean disponible, Categoria categoria) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
         this.disponible = disponible;
+        this.categoria = categoria;
     }
 
     // Getter y Setter
 
+
+
     public Long getId() {
-        return id;
+        return id_producto;
     }
     public void setId(Long id) {
-        this.id = id;
+        this.id_producto = id_producto;
     }
 
     public String getNombre() {
@@ -83,16 +101,17 @@ public class Producto {
     }
 
     // Metodo ToString
+
+
     @Override
     public String toString() {
         return "Producto{" +
-                "id=" + id +
+                "id_producto=" + id_producto +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
                 ", stock=" + stock +
                 ", disponible=" + disponible +
+                ", categoria=" + categoria +
                 '}';
     }
-
-
 }
