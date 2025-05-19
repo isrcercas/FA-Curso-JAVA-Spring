@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Viñetas en 3 Filas</title>
+  <style>
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    .fila {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="fila">
+  <ul>
+    <li><strong>Creada por: </strong><span th:text="${desarrollador}"></span></li>
+    <li><strong>Fecha creacion: </strong><span th:text="${fecha}"></span></li>
+    <li><strong>Version: </strong><span th:text="${version}"></span></li>
+  </ul>
+</div>
+
+
+
+
+</body>
+</html>
