@@ -7,7 +7,6 @@ import com.aicija.repositories.ProductoRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
 import java.util.List;
 
 @SpringBootApplication
@@ -100,12 +99,16 @@ public class Main {
 			}
 			System.out.println("Total de productos en el rango: " + precioProducto.size());
 		}
+		String cateBusc = "Cereales";
+		List<Producto> producCategori = productoRepository.findByCategoria_NombreIgnoreCase(cateBusc);
 
+		if(producCategori.isEmpty()){
+			System.out.println("No se ha encontrado nada de nada");
+		}else{
 
-
-
-
-
-
+			for(Producto listado: producCategori){
+				System.out.println(" - " + listado.getNombre() + " (" + listado.getCategoria().getNombre() + ") " + listado.getPrecio() + "€. ");
+			}
+		}
 	}
 }

@@ -34,6 +34,10 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
   // contar stock
   long countByStock(Integer stock);
 
+  // Encontrar por nombre de categoria
+  List<Producto> findByCategoria_NombreIgnoreCase(String nombre);
+
+
 
   // Consultas JPQL
   // Similares a SQL orientadas a objetos

@@ -18,6 +18,8 @@ public class Categoria {
     @Column(length = 400)
     private String descripcion;
 
+
+
     public Categoria() {
     }
 
