@@ -31,9 +31,9 @@ public class Main {
 		categoriaRepository.saveAll(List.of(frutas,lacteos,cereales));
 
 		// crear productos en el main NO bbdd
-		Producto manzana = new Producto("manzana", 1.5, 100, true, frutas);
-		Producto yogurt = new Producto("yogurt", 2.5, 10, true, lacteos);
-		Producto avena = new Producto("avena", 8.5, 5, true, cereales);
+		Producto manzana = new Producto("manzana", 1.555, 100, true, frutas);
+		Producto yogurt = new Producto("yogurt", 2.5458, 10, true, lacteos);
+		Producto avena = new Producto("avena", 8.548, 5, true, cereales);
 		Producto macarrones = new Producto("macarrones", 8.5, 5, true, cereales);
 		// guardar productos
 		productoRepository.save(manzana);
@@ -110,5 +110,8 @@ public class Main {
 				System.out.println(" - " + listado.getNombre() + " (" + listado.getCategoria().getNombre() + ") " + listado.getPrecio() + "€. ");
 			}
 		}
+
+		System.out.println("==================");
+		System.out.println("Ahora esta activo los controllers");
 	}
 }
