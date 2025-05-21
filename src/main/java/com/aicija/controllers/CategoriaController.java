@@ -2,6 +2,7 @@ package com.aicija.controllers;
 
 import com.aicija.entities.Categoria;
 import com.aicija.repositories.CategoriaRepository;
+import com.aicija.repositories.ProductoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ public class CategoriaController {
     public CategoriaController(CategoriaRepository categoriaRepository){
         this.categoriaRepository = categoriaRepository;
     }
+
 
     @GetMapping("categorias")
     public String findAll(Model model){

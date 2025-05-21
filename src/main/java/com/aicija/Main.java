@@ -31,10 +31,11 @@ public class Main {
 		categoriaRepository.saveAll(List.of(frutas,lacteos,cereales));
 
 		// crear productos en el main NO bbdd
+
 		Producto manzana = new Producto("manzana", 1.555, 100, true, frutas);
 		Producto yogurt = new Producto("yogurt", 2.5458, 10, true, lacteos);
-		Producto avena = new Producto("avena", 8.548, 5, true, cereales);
-		Producto macarrones = new Producto("macarrones", 8.5, 5, true, cereales);
+		Producto avena = new Producto("avena", 8.548, 5, true, null);
+		Producto macarrones = new Producto("macarrones", 8.5, 1, false, cereales);
 		// guardar productos
 		productoRepository.save(manzana);
 		productoRepository.save(yogurt);
