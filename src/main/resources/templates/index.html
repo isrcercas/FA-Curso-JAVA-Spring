@@ -1,34 +1,117 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Productos y Categorías</title>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <meta charset="UTF-8">
-    <title>Title</title>
+
     <style>
-        .mostrar-botones{
-            margin: 5px;
-            padding: 8px;
-        {
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+        }
 
+        .card-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #6c757d;
+        }
+
+        .custom-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
     </style>
-
 </head>
 <body>
-<h1>Relación de Productos y Categorias.</h1>
+<div class="container py-4">
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <h1 class="display-4 fw-bold">Relación de Productos y Categorías</h1>
+        <p class="lead">Administra y visualiza tus productos y categorías de manera sencilla</p>
+    </div>
 
-<div>
-    <h2 class="mostrar-botones">Cantidad de productos, creados: </h2>
-    <a class="btn btn-sm btn-info mostrar-botones" th:href="@{/productos}"><strong>Listado de Productos</strong></a></div>
-<br>
-<div>
-    <h2 class="mostrar-botones">Cantidad de categorias, creadas: </h2>
-    <a class="btn btn-sm btn-info mostrar-botones" th:href="@{/categorias}"><strong>Listado de Categorias</strong></a></div>
+    <!-- Cards Section -->
+    <div class="row g-4">
+        <!-- Productos Card -->
+        <div class="col-md-6">
+            <div class="card custom-card shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="card-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <h2 class="card-title h4 mb-3">Productos</h2>
+                    <div class="card-counter mb-3" th:text="${cantidadProductos}">0</div>
+                    <p class="card-text text-muted mb-4">Total de productos registrados en el sistema</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <a class="btn btn-primary" th:href="@{/productos}">
+                            <i class="bi bi-list-ul me-2"></i>Ver listado
+                        </a>
+                        <a class="btn btn-outline-primary ms-md-2 mt-2 mt-md-0" href="#">
+                            <i class="bi bi-plus-circle me-2"></i>Agregar nuevo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categorías Card -->
+        <div class="col-md-6">
+            <div class="card custom-card shadow-sm">
+                <div class="card-body text-center p-4">
+                    <div class="card-icon">
+                        <i class="bi bi-tags"></i>
+                    </div>
+                    <h2 class="card-title h4 mb-3">Categorías</h2>
+                    <div class="card-counter mb-3" th:text="${cantidadCategorias}">0</div>
+                    <p class="card-text text-muted mb-4">Total de categorías registradas en el sistema</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <a class="btn btn-primary" th:href="@{/categorias}">
+                            <i class="bi bi-list-ul me-2"></i>Ver listado
+                        </a>
+                        <a class="btn btn-outline-primary ms-md-2 mt-2 mt-md-0" href="#">
+                            <i class="bi bi-plus-circle me-2"></i>Agregar nueva
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Info Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="alert alert-info">
+                <h4 class="alert-heading"><i class="bi bi-info-circle-fill me-2"></i>Información del sistema</h4>
+                <p>Desde aquí puedes administrar todos los productos y categorías de tu inventario. Utiliza los botones correspondientes para acceder a cada sección.</p>
+                <hr>
+                <p class="mb-0">Recuerda que los cambios realizados se verán reflejados inmediatamente en el sistema.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Bootstrap JS Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </body>
 </html>

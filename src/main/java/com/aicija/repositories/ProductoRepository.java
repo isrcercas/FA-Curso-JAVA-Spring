@@ -10,7 +10,7 @@ import java.util.List;
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
   // spring boot implementa metodos basicos
-  // findAll(), findById(), save(), delete(), etc..
+  // findAll(), findById(), save(), delete(), etc..ducto,
 
 /* Hechos a mano
   Producto findByName(String nombre);

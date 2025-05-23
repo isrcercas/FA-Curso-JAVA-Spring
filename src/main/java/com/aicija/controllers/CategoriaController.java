@@ -20,13 +20,41 @@ public class CategoriaController {
     }
 
 
-    @GetMapping("categorias")
+    @GetMapping("/categorias")
     public String findAll(Model model){
 
         List<Categoria> categorias = categoriaRepository.findAll();
         model.addAttribute("categorias", categorias);
 
-        return "categorias";
+        return "categoria-list";
     }
+
+    @GetMapping("/categorias/nuevo")
+    public String createCategoria(Model model){
+        model.addAttribute("categorias", categoriaRepository);
+
+        return "categoria-form";
+    }
+   // @GetMapping
+    //public String createC
+
+    /*
+    * // Metodo para crear producto muestra
+    @GetMapping("/productos/nuevo")
+    public String createForm(Model model){
+
+        model.addAttribute("producto", new Producto());
+        model.addAttribute("categorias", categoriaRepository.findAll());
+        return "producto-form";
+    }
+
+    @PostMapping("/productos")
+    public String saveForm(@ModelAttribute Producto producto){
+        productoRepository.save(producto);
+
+        return "redirect:/productos";
+
+    }
+    * */
 
 }
